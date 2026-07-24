@@ -104,11 +104,20 @@
     box-shadow:var(--shadow);
     position:relative; overflow:hidden; color:#e9e8e1;
   }
-  .card::before{
+  .card-bg-video{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; z-index:0;
+  }
+  @media (prefers-reduced-motion: reduce){ .card-bg-video{display:none;} }
+  .card-scrim{
+    position:absolute; inset:0; z-index:1;
+    background:linear-gradient(155deg, rgba(27,34,51,0.90) 0%, rgba(16,20,29,0.93) 55%, rgba(23,29,43,0.90) 100%);
+  }
+  .card-scrim::after{
     content:""; position:absolute; inset:0;
     background:repeating-linear-gradient(115deg, rgba(255,255,255,0.02) 0 2px, transparent 2px 26px);
-    pointer-events:none;
   }
+  .card-content{position:relative; z-index:2;}
   .card-top{display:flex; justify-content:space-between; align-items:flex-start; gap:16px;}
   .chip{
     width:44px; height:34px; border-radius:6px;
@@ -267,21 +276,28 @@
 
 <div id="top" class="hero-band">
   <div class="card">
-    <div class="card-top">
-      <div class="card-network">Payments · Product &amp; Quality</div>
-      <div class="chip" aria-hidden="true"></div>
-    </div>
-    <h1 class="card-name">Mohamed Elaadly</h1>
-    <p class="card-role">Product &amp; Quality Lead — Prepaid Cards, Digital Payments &amp; AI Automation</p>
-    <p class="card-tagline">Six years turning payment PRDs into shipped, well-governed products — DCC, tokenisation, card BIN routing, settlement — and building two AI platforms that automate the SDLC and QA lifecycle end to end.</p>
-    <div class="card-meta">
-      <div><span class="label">Based in</span><span class="value mono">Dubai, UAE</span></div>
-      <div><span class="label">Phone</span><span class="value mono">+971 50 334 4217</span></div>
-      <div><span class="label">Email</span><span class="value mono"><a href="mailto:mohamedbasem512@gmail.com">mohamedbasem512@gmail.com</a></span></div>
-    </div>
-    <div class="cta-row">
-      <a class="btn btn-primary" href="#projects">See the AI products →</a>
-      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    <video class="card-bg-video" autoplay muted loop playsinline
+      poster="https://github.com/mohbasem25/mohamed-elaadly-product-manager-portofolio/releases/download/media-v1/cover-istqb-static-testing.jpg">
+      <source src="https://github.com/mohbasem25/mohamed-elaadly-product-manager-portofolio/releases/download/media-v1/video-istqb-static-testing.mp4" type="video/mp4">
+    </video>
+    <div class="card-scrim"></div>
+    <div class="card-content">
+      <div class="card-top">
+        <div class="card-network">Payments · Product &amp; Quality</div>
+        <div class="chip" aria-hidden="true"></div>
+      </div>
+      <h1 class="card-name">Mohamed Elaadly</h1>
+      <p class="card-role">Product &amp; Quality Lead — Prepaid Cards, Digital Payments &amp; AI Automation</p>
+      <p class="card-tagline">Six years turning payment PRDs into shipped, well-governed products — DCC, tokenisation, card BIN routing, settlement — and building two AI platforms that automate the SDLC and QA lifecycle end to end.</p>
+      <div class="card-meta">
+        <div><span class="label">Based in</span><span class="value mono">Dubai, UAE</span></div>
+        <div><span class="label">Phone</span><span class="value mono">+971 50 334 4217</span></div>
+        <div><span class="label">Email</span><span class="value mono"><a href="mailto:mohamedbasem512@gmail.com">mohamedbasem512@gmail.com</a></span></div>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#projects">See the AI products →</a>
+        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      </div>
     </div>
   </div>
 </div>
