@@ -1,0 +1,570 @@
+<title>Mohamed Elaadly · Payments Product & Quality Lead</title>
+
+<style>
+  :root{
+    --ink:#0e1420;
+    --paper:#eceef1;
+    --surface:#ffffff;
+    --brass:#a97c3f;
+    --brass-soft:#c99a5b;
+    --steel:#3f6b7d;
+    --graphite:#232936;
+    --mist:#6b7280;
+    --hairline:#d7dade;
+    --ledger-line:rgba(35,41,54,0.08);
+    --shadow:0 24px 60px -28px rgba(14,20,32,0.35);
+    --nav-h:64px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --ink:#0a0d14; --paper:#10141d; --surface:#161b26; --brass:#c99a5b;
+      --brass-soft:#e0b878; --steel:#7fb2c4; --graphite:#e7e6df; --mist:#8b93a3;
+      --hairline:#2a3040; --ledger-line:rgba(231,230,223,0.07);
+      --shadow:0 24px 60px -24px rgba(0,0,0,0.65);
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#0a0d14; --paper:#10141d; --surface:#161b26; --brass:#c99a5b;
+    --brass-soft:#e0b878; --steel:#7fb2c4; --graphite:#e7e6df; --mist:#8b93a3;
+    --hairline:#2a3040; --ledger-line:rgba(231,230,223,0.07);
+    --shadow:0 24px 60px -24px rgba(0,0,0,0.65);
+  }
+  :root[data-theme="light"]{
+    --ink:#0e1420; --paper:#eceef1; --surface:#ffffff; --brass:#a97c3f;
+    --brass-soft:#c99a5b; --steel:#3f6b7d; --graphite:#232936; --mist:#6b7280;
+    --hairline:#d7dade; --ledger-line:rgba(35,41,54,0.08);
+    --shadow:0 24px 60px -28px rgba(14,20,32,0.35);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:calc(var(--nav-h) + 12px);}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--graphite);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:Georgia,"Iowan Old Style","Palatino Linotype",serif; text-wrap:balance; margin:0;}
+  .mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace; font-variant-numeric:tabular-nums;}
+  a{color:var(--steel);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--brass); outline-offset:3px;}
+  .measure{max-width:66ch;}
+  section{scroll-margin-top:calc(var(--nav-h) + 12px);}
+
+  .wrap{max-width:980px; margin:0 auto; padding:0 24px;}
+
+  /* ---------- NAV ---------- */
+  nav.site{
+    position:sticky; top:0; z-index:50;
+    height:var(--nav-h);
+    background:color-mix(in srgb, var(--ink) 92%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(201,154,91,0.18);
+  }
+  .nav-inner{
+    max-width:980px; margin:0 auto; padding:0 24px; height:100%;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .brandmark{display:flex; align-items:center; gap:10px; color:#f4f2ea; text-decoration:none;}
+  .brandmark .chip-mini{
+    width:22px; height:16px; border-radius:3px;
+    background:linear-gradient(135deg, var(--brass-soft), var(--brass) 60%, #8a6532);
+  }
+  .brandmark span{font-family:Georgia,serif; font-size:15px; letter-spacing:0.02em;}
+  .nav-links{display:flex; gap:22px; list-style:none; margin:0; padding:0;}
+  .nav-links a{
+    color:#c9cdd6; text-decoration:none; font-size:13px; letter-spacing:0.04em; text-transform:uppercase;
+  }
+  .nav-links a:hover{color:var(--brass-soft);}
+  .nav-cta{
+    font-size:12.5px; padding:8px 14px; border-radius:999px;
+    border:1px solid rgba(201,154,91,0.4); color:var(--brass-soft); text-decoration:none;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{background:rgba(201,154,91,0.12);}
+  @media (max-width:720px){ .nav-links{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero-band{
+    background:
+      radial-gradient(circle at 12% 10%, var(--ledger-line) 0, transparent 45%),
+      var(--ink);
+    padding:64px 24px 100px;
+  }
+  .card{
+    max-width:800px; margin:0 auto;
+    background:linear-gradient(155deg, #1b2233 0%, #10141d 55%, #171d2b 100%);
+    border:1px solid rgba(201,154,91,0.25);
+    border-radius:18px;
+    padding:44px 44px 34px;
+    box-shadow:var(--shadow);
+    position:relative; overflow:hidden; color:#e9e8e1;
+  }
+  .card::before{
+    content:""; position:absolute; inset:0;
+    background:repeating-linear-gradient(115deg, rgba(255,255,255,0.02) 0 2px, transparent 2px 26px);
+    pointer-events:none;
+  }
+  .card-top{display:flex; justify-content:space-between; align-items:flex-start; gap:16px;}
+  .chip{
+    width:44px; height:34px; border-radius:6px;
+    background:linear-gradient(135deg, var(--brass-soft), var(--brass) 60%, #8a6532);
+    box-shadow:inset 0 0 0 1px rgba(0,0,0,0.25); position:relative;
+  }
+  .chip::after{content:""; position:absolute; inset:5px; border:1px solid rgba(0,0,0,0.35); border-radius:3px;}
+  .card-network{font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--brass-soft);}
+  .card-name{font-size:clamp(32px, 5vw, 48px); margin-top:24px; color:#f4f2ea;}
+  .card-role{margin-top:10px; font-size:17px; color:#c9cdd6; font-style:italic;}
+  .card-tagline{margin-top:18px; font-size:15px; color:#a9b0bd; max-width:56ch;}
+  .card-meta{
+    margin-top:30px; display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:14px 20px; border-top:1px solid rgba(255,255,255,0.12); padding-top:20px;
+  }
+  .card-meta div{display:flex; flex-direction:column; gap:4px;}
+  .card-meta .label{font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:#8992a3;}
+  .card-meta .value{font-size:14px; color:#e9e8e1;}
+  .card-meta .value a{color:var(--brass-soft); text-decoration:none;}
+  .card-meta .value a:hover{text-decoration:underline;}
+  .cta-row{margin-top:26px; display:flex; gap:12px; flex-wrap:wrap;}
+  .btn{
+    font-size:13.5px; padding:11px 18px; border-radius:8px; text-decoration:none;
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-primary{background:var(--brass-soft); color:#1b1305; font-weight:700;}
+  .btn-primary:hover{background:#eccb95;}
+  .btn-ghost{border:1px solid rgba(255,255,255,0.25); color:#e9e8e1;}
+  .btn-ghost:hover{border-color:var(--brass-soft); color:var(--brass-soft);}
+
+  /* ---------- GENERIC SECTION ---------- */
+  .section-inner{padding:64px 0;}
+  .section-head{margin-bottom:30px;}
+  .eyebrow{font-size:11.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--brass); font-weight:700;}
+  .section-head h2{font-size:28px; margin-top:8px;}
+  .surface-block{
+    background:var(--surface); border:1px solid var(--hairline); border-radius:14px;
+    padding:36px 40px; box-shadow:var(--shadow);
+  }
+
+  section:nth-of-type(even){background:var(--surface);}
+
+  /* metrics */
+  .metrics{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:1px;
+    background:var(--hairline); border:1px solid var(--hairline); border-radius:10px; overflow:hidden;
+    margin-top:26px;
+  }
+  .metric{background:var(--surface); padding:18px 18px 15px;}
+  .metric .num{font-family:Georgia,serif; font-size:28px; color:var(--brass); font-variant-numeric:tabular-nums;}
+  .metric .cap{font-size:11.5px; color:var(--mist); margin-top:5px; line-height:1.4;}
+
+  /* about grid */
+  .align-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:1px;
+    background:var(--hairline); border:1px solid var(--hairline); border-radius:10px; overflow:hidden;
+    margin-top:24px;
+  }
+  .align-cell{background:var(--surface); padding:18px 20px;}
+  .align-cell h3{font-family:inherit; font-size:12.5px; letter-spacing:0.06em; text-transform:uppercase; color:var(--brass); font-weight:600; margin-bottom:6px;}
+  .align-cell p{margin:0; font-size:13.6px; color:var(--mist); line-height:1.5;}
+
+  /* project case studies */
+  .project{
+    display:grid; grid-template-columns:0.9fr 1.4fr; gap:36px;
+    padding:36px 0; border-top:1px solid var(--hairline);
+  }
+  .project:first-child{border-top:none; padding-top:0;}
+  @media (max-width:760px){ .project{grid-template-columns:1fr;} }
+  .project-head .kicker{font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--steel); font-weight:700;}
+  .project-head h3{font-size:22px; margin-top:8px; color:var(--graphite);}
+  .project-tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:14px;}
+  .project-tags span{
+    font-size:11.5px; padding:4px 9px; border-radius:999px; background:var(--paper);
+    border:1px solid var(--hairline); color:var(--mist);
+  }
+  .stage{margin-bottom:14px;}
+  .stage .label{font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--brass); font-weight:700;}
+  .stage p{margin:5px 0 0; font-size:14.3px; color:var(--graphite); line-height:1.6;}
+
+  /* experience ledger */
+  .entry{
+    display:grid; grid-template-columns:120px 1fr; gap:20px; padding:20px 0;
+    border-top:1px dashed var(--ledger-line);
+  }
+  .entry:first-of-type{border-top:none;}
+  .entry .when{font-size:12.5px; color:var(--mist); padding-top:3px; line-height:1.5;}
+  .entry .org{font-size:17px; font-weight:700; color:var(--graphite); font-family:Georgia,serif;}
+  .entry .role{font-size:13.5px; color:var(--steel); margin-top:2px; margin-bottom:10px; font-weight:600;}
+  .entry ul{margin:0; padding-left:18px; font-size:14.3px; color:var(--graphite);}
+  .entry li{margin-bottom:7px;}
+  .entry li::marker{color:var(--brass);}
+  @media (max-width:560px){ .entry{grid-template-columns:1fr;} .entry .when{padding-top:0;} }
+
+  /* skills chips */
+  .expertise-row{
+    display:grid; grid-template-columns:170px 1fr; gap:18px; padding:14px 0;
+    border-top:1px solid var(--ledger-line); align-items:start;
+  }
+  .expertise-row:first-child{border-top:none;}
+  .expertise-row .cat{font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--steel); font-weight:700; padding-top:2px;}
+  .chips{display:flex; flex-wrap:wrap; gap:8px;}
+  .chips span{font-size:12.3px; padding:5px 10px; border-radius:999px; background:var(--paper); border:1px solid var(--hairline); color:var(--graphite);}
+  @media (max-width:560px){ .expertise-row{grid-template-columns:1fr;} }
+
+  /* speaking */
+  .video-box{border-left:3px solid var(--brass); padding-left:18px; font-size:14.5px; color:var(--mist); font-style:italic;}
+  .video-box a{color:var(--steel); font-style:normal;}
+  .video-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:22px; margin-top:26px;
+  }
+  .video-card{
+    background:var(--surface); border:1px solid var(--hairline); border-radius:12px; overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .video-card video{display:block; width:100%; aspect-ratio:16/9; background:#000;}
+  .video-card-body{padding:16px 18px 18px;}
+  .video-card-body h3{font-family:inherit; font-size:14.5px; color:var(--graphite); margin-bottom:4px;}
+  .video-card-body p{margin:0; font-size:12.5px; color:var(--mist);}
+
+  /* education/lang */
+  .split{display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px;}
+  @media (max-width:760px){ .split{grid-template-columns:1fr;} }
+  .split h3{font-family:inherit; font-size:12.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--brass); margin-bottom:8px;}
+  .split p{margin:0; font-size:14px; color:var(--graphite);}
+  .split .sub{color:var(--mist); font-size:13px; margin-top:2px;}
+
+  /* contact */
+  .contact-band{background:var(--ink); color:#e9e8e1; text-align:center;}
+  .contact-band .section-inner{padding:80px 24px;}
+  .contact-band h2{color:#f4f2ea; font-size:30px;}
+  .contact-band p{color:#a9b0bd; margin-top:12px; max-width:52ch; margin-left:auto; margin-right:auto;}
+  .contact-links{display:flex; justify-content:center; gap:14px; margin-top:28px; flex-wrap:wrap;}
+
+  footer{text-align:center; padding:28px 24px; font-size:12px; color:var(--mist); background:var(--ink);}
+</style>
+
+<nav class="site">
+  <div class="nav-inner">
+    <a class="brandmark" href="#top">
+      <span class="chip-mini" aria-hidden="true"></span>
+      <span>M. Elaadly</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#speaking">Speaking</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div id="top" class="hero-band">
+  <div class="card">
+    <div class="card-top">
+      <div class="card-network">Payments · Product &amp; Quality</div>
+      <div class="chip" aria-hidden="true"></div>
+    </div>
+    <h1 class="card-name">Mohamed Elaadly</h1>
+    <p class="card-role">Product &amp; Quality Lead — Prepaid Cards, Digital Payments &amp; AI Automation</p>
+    <p class="card-tagline">Six years turning payment PRDs into shipped, well-governed products — DCC, tokenisation, card BIN routing, settlement — and building two AI platforms that automate the SDLC and QA lifecycle end to end.</p>
+    <div class="card-meta">
+      <div><span class="label">Based in</span><span class="value mono">Dubai, UAE</span></div>
+      <div><span class="label">Phone</span><span class="value mono">+971 50 334 4217</span></div>
+      <div><span class="label">Email</span><span class="value mono"><a href="mailto:mohamedbasem512@gmail.com">mohamedbasem512@gmail.com</a></span></div>
+      <div><span class="label">Elsewhere</span><span class="value mono"><a href="https://mohbasem25.github.io" target="_blank" rel="noopener">mohbasem25.github.io</a></span></div>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#projects">See the AI products →</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="wrap section-inner">
+    <div class="section-head">
+      <div class="eyebrow">About</div>
+      <h2>Payments product &amp; quality, end to end</h2>
+    </div>
+    <p class="measure" style="font-size:15.5px;">
+      I sit at the intersection of product ownership and quality engineering for payments infrastructure — currently
+      supporting Botim/Astra Tech across DCC, recurring and tokenized payments, CIT/MIT stored-credential flows, card BIN
+      routing, multi-currency settlement, merchant reporting and launch governance. I translate PRDs and commercial
+      objectives into requirements, acceptance criteria, test strategies and release gates, then hold the line at
+      Go/No-Go. Strong cross-functional partner to Product, Engineering, Operations, Risk and Finance, with hands-on
+      SQL, API and automation capability and four ISTQB certifications.
+    </p>
+
+    <div class="metrics" role="list" aria-label="Headline metrics">
+      <div class="metric"><div class="num">87%</div><div class="cap">automated test coverage, up from 60%</div></div>
+      <div class="metric"><div class="num">30</div><div class="cap">P0–P2 scenarios in the DCC launch gate</div></div>
+      <div class="metric"><div class="num">500+</div><div class="cap">automated tests shipped at Seitech/ING</div></div>
+      <div class="metric"><div class="num">5d→8h</div><div class="cap">regression cycle time reduced</div></div>
+    </div>
+
+    <div class="align-grid">
+      <div class="align-cell"><h3>Prepaid &amp; Card Lifecycle</h3><p>CVP/requirements, BIN logic, scheme readiness, UAT, launch gates, post-launch optimisation.</p></div>
+      <div class="align-cell"><h3>Issuing &amp; Payment Ops</h3><p>Settlement, DCC pricing/rebate, card profiling, tokenisation, recurring payments, reporting.</p></div>
+      <div class="align-cell"><h3>Portfolio &amp; Governance</h3><p>Activation/reliability analysis, dashboards, performance scaling, risks, issues and Go/No-Go.</p></div>
+      <div class="align-cell"><h3>Digital Wallets</h3><p>Apple Pay tokenisation, DPAN/card binding, Google Pay/Jaywan exposure, wallet top-up and payment rails.</p></div>
+      <div class="align-cell"><h3>Product Ownership</h3><p>PRDs, epics, user stories, acceptance criteria, backlog support and cross-functional delivery.</p></div>
+      <div class="align-cell"><h3>AI Product Innovation</h3><p>Two enterprise AI solutions automating SDLC and QA lifecycle end-to-end.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap section-inner">
+    <div class="section-head">
+      <div class="eyebrow">Featured Work</div>
+      <h2>Two AI platforms built inside Botim</h2>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div class="kicker">Platform 01</div>
+        <h3>AI Software Delivery Lifecycle Automation</h3>
+        <div class="project-tags">
+          <span>Requirements intelligence</span><span>Human-in-the-loop</span><span>Code generation</span><span>Traceability</span>
+        </div>
+      </div>
+      <div>
+        <div class="stage"><span class="label">Challenge</span><p>Requirements intake was manual and slow to catch ambiguity — vague or incomplete scope reached engineering before anyone flagged the gaps.</p></div>
+        <div class="stage"><span class="label">Approach</span><p>Designed and built an internal, human-in-the-loop platform that automates requirements intake and analysis, detects ambiguity and missing information, and decomposes approved scope into epics, user stories, acceptance criteria and technical implementation plans. Later extended it across code generation and delivery prep — implementation scaffolding, review-ready change summaries, technical documentation and structured QA handoff packs.</p></div>
+        <div class="stage"><span class="label">Impact</span><p>Every generated artefact keeps traceability back to the originating business requirement, so decomposition speed no longer trades off against auditability.</p></div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <div class="kicker">Platform 02</div>
+        <h3>AI Quality Engineering Automation Platform</h3>
+        <div class="project-tags">
+          <span>Risk-based testing</span><span>Test generation</span><span>Automation assets</span><span>Bug reporting</span>
+        </div>
+      </div>
+      <div>
+        <div class="stage"><span class="label">Challenge</span><p>Turning a reviewed PRD into a solid test strategy, case set and traceability matrix was a repeated, largely manual bottleneck ahead of every release.</p></div>
+        <div class="stage"><span class="label">Approach</span><p>Built an end-to-end QA copilot that reviews PRDs, epics and user stories, identifies requirement gaps and test risks, and generates risk-based test strategies, scenarios, detailed test cases, test data and requirement-traceability outputs.</p></div>
+        <div class="stage"><span class="label">Impact</span><p>Automated downstream QA execution support — API/UI automation assets, regression recommendations and evidence-based bug reports with reproduction steps, expected-vs-actual results and severity context — gives a consistent path from requirements review through release-quality reporting.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap section-inner">
+    <div class="section-head">
+      <div class="eyebrow">Career</div>
+      <h2>Experience</h2>
+    </div>
+
+    <div class="entry">
+      <div class="when mono">Dec 2024<br>— Present</div>
+      <div>
+        <div class="org">Botim / Astra Tech</div>
+        <div class="role">Product &amp; Quality Lead, Payments — Dubai, UAE</div>
+        <ul>
+          <li>Own product-quality delivery across DCC, recurring/tokenised payments, CIT/MIT stored-credential flows, merchant configuration, reporting and multi-currency settlement.</li>
+          <li>Authored requirements and acceptance criteria for DCC merchant configuration and Hosted Payment Page selection, including default and MID-level behaviour.</li>
+          <li>Ran a formal launch-gating plan for DCC — ~30 prioritised P0–P2 scenarios, a four-day schedule, maker-checker controls, defect triage and Go/No-Go sign-off.</li>
+          <li>Built and validated internal card-BIN identification, profiling and routing logic feeding downstream transaction routing and risk decisions.</li>
+          <li>Led DCC markup/rebate reporting and defect resolution across query/download journeys, PDF/XLSX accuracy and settlement commission calculations.</li>
+          <li>Directed QA for Apple Pay tokenisation and recurring "device pay" subscriptions — DPAN binding, token persistence, CIT/MIT behaviour.</li>
+          <li>Partnered on live/pre-launch initiatives: Mastercard-branded prepaid card, Jaywan salary-card, multi-currency card, instalment-card.</li>
+          <li>Raised automated coverage from 60% to 87%, integrated API/UI/database checks into Jenkins CI/CD, and mentor three QA engineers.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when mono">Sep 2022<br>— Nov 2024</div>
+      <div>
+        <div class="org">Seitech Solutions GmbH</div>
+        <div class="role">Product &amp; Quality Engineer, AI &amp; Automotive Platforms — Stuttgart, Germany</div>
+        <ul>
+          <li>Combined product ownership and software quality across enterprise, AI and automotive programmes with teams in Germany and Romania.</li>
+          <li>Led product-quality delivery for an ING enterprise document-management platform; implemented 500+ automated tests, cutting regression time from five days to eight hours.</li>
+          <li>Owned quality strategy for three production AI systems — MISRA static analysis, ASPICE requirements-quality NLP, email classification/extraction.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="entry">
+      <div class="when mono">Oct 2021<br>— Jul 2022</div>
+      <div>
+        <div class="org">Valeo Egypt</div>
+        <div class="role">Embedded Software Development &amp; QA Engineer — Cairo, Egypt</div>
+        <ul>
+          <li>Developed and tested a remote vehicle-diagnostics solution using Classic AUTOSAR and Telematics V2I communication.</li>
+          <li>Implemented AUTOSAR Memory, Communication and Diagnostics stacks (CAN, CAN-IF, DEM, DCM) with unit/integration/interface testing on target hardware.</li>
+          <li>Maintained requirements traceability across development and QA workstreams.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap section-inner">
+    <div class="section-head">
+      <div class="eyebrow">Toolkit</div>
+      <h2>Skills &amp; expertise</h2>
+    </div>
+
+    <div class="expertise-row">
+      <div class="cat">Product &amp; Commercial</div>
+      <div class="chips">
+        <span>Prepaid card lifecycle</span><span>Digital payments</span><span>CVP translation</span>
+        <span>PRDs</span><span>Epics &amp; user stories</span><span>Acceptance criteria</span>
+        <span>Launch readiness</span><span>Portfolio optimisation</span>
+      </div>
+    </div>
+    <div class="expertise-row">
+      <div class="cat">Cards &amp; Wallets</div>
+      <div class="chips">
+        <span>Card issuing</span><span>BIN lookup/profiling</span><span>Scheme onboarding</span>
+        <span>Mastercard/Visa stored credentials</span><span>CIT/MIT</span><span>DCC</span>
+        <span>Settlement</span><span>Interchange/fees</span><span>Chargebacks</span>
+        <span>Apple Pay</span><span>Google Pay/Jaywan</span><span>Tokenisation</span><span>3DS</span>
+      </div>
+    </div>
+    <div class="expertise-row">
+      <div class="cat">Portfolio &amp; Analytics</div>
+      <div class="chips">
+        <span>Activation analysis</span><span>SQL</span><span>Merchant performance</span>
+        <span>Rate/rebate validation</span><span>Operational dashboards</span>
+        <span>Statement/report accuracy</span><span>Root-cause analysis</span><span>P&amp;L drivers</span>
+      </div>
+    </div>
+    <div class="expertise-row">
+      <div class="cat">Delivery &amp; Governance</div>
+      <div class="chips">
+        <span>Cross-functional coordination</span><span>UAT</span><span>Risk-based testing</span>
+        <span>Go/No-Go</span><span>Maker-checker controls</span><span>Defect triage</span>
+        <span>Executive reporting</span><span>Agile/Scrum</span><span>Jira</span><span>Confluence</span>
+      </div>
+    </div>
+    <div class="expertise-row">
+      <div class="cat">Tools &amp; Technology</div>
+      <div class="chips">
+        <span>SQL / MySQL / MongoDB</span><span>Power BI/Tableau</span><span>Mastercard Connect/Mastercom</span>
+        <span>Visa Online</span><span>REST APIs</span><span>Postman</span><span>REST Assured</span>
+        <span>Playwright</span><span>Selenium</span><span>Appium</span><span>Java</span><span>Python</span>
+        <span>JavaScript</span><span>Jenkins</span><span>GitLab CI/CD</span><span>GitHub Actions</span>
+        <span>JMeter</span><span>k6</span>
+      </div>
+    </div>
+    <div class="expertise-row">
+      <div class="cat">AI</div>
+      <div class="chips">
+        <span>AI product design</span><span>Requirements intelligence</span><span>Code-generation workflows</span>
+        <span>LLM/ML evaluation</span><span>Prompt-injection testing</span><span>Hallucination checks</span>
+        <span>Precision/recall/F1</span><span>AI-assisted test generation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="speaking">
+  <div class="wrap section-inner">
+    <div class="section-head">
+      <div class="eyebrow">Speaking</div>
+      <h2>Product ownership &amp; QA education</h2>
+    </div>
+    <div class="video-box">
+      Professional lecturer explaining SAFe Product Owner and ISTQB certificate concepts through short clips on LinkedIn,
+      also featured on my portfolio at
+      <a href="https://mohbasem25.github.io/#videos" target="_blank" rel="noopener">mohbasem25.github.io/#videos</a>.
+    </div>
+    <div class="video-grid">
+      <div class="video-card">
+        <video controls preload="none" playsinline
+          poster="https://github.com/mohbasem25/mohamed-elaadly-product-manager-portofolio/releases/download/media-v1/cover-defect-failure-root-cause.jpg">
+          <source src="https://github.com/mohbasem25/mohamed-elaadly-product-manager-portofolio/releases/download/media-v1/video-defect-failure-root-cause.mp4" type="video/mp4">
+        </video>
+        <div class="video-card-body">
+          <h3>Error vs. Defect vs. Failure vs. Root Cause</h3>
+          <p>ISTQB fundamentals, explained.</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <video controls preload="none" playsinline
+          poster="https://github.com/mohbasem25/mohamed-elaadly-product-manager-portofolio/releases/download/media-v1/cover-performance-testing-types.jpg">
+          <source src="https://github.com/mohbasem25/mohamed-elaadly-product-manager-portofolio/releases/download/media-v1/video-performance-testing-types.mp4" type="video/mp4">
+        </video>
+        <div class="video-card-body">
+          <h3>6 Performance Testing Types</h3>
+          <p>A walkthrough of the core performance test types.</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <video controls preload="none" playsinline
+          poster="https://github.com/mohbasem25/mohamed-elaadly-product-manager-portofolio/releases/download/media-v1/cover-istqb-static-testing.jpg">
+          <source src="https://github.com/mohbasem25/mohamed-elaadly-product-manager-portofolio/releases/download/media-v1/video-istqb-static-testing.mp4" type="video/mp4">
+        </video>
+        <div class="video-card-body">
+          <h3>ISTQB CTFL Chapter 3: Static Testing</h3>
+          <p>Certificate-syllabus concepts, broken down.</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <video controls preload="none" playsinline
+          poster="https://github.com/mohbasem25/mohamed-elaadly-product-manager-portofolio/releases/download/media-v1/cover-defect-financial-incident.jpg">
+          <source src="https://github.com/mohbasem25/mohamed-elaadly-product-manager-portofolio/releases/download/media-v1/video-defect-financial-incident.mp4" type="video/mp4">
+        </video>
+        <div class="video-card-body">
+          <h3>A Small Defect Can Be a Financial Incident</h3>
+          <p>Why severity and impact aren't the same thing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap section-inner">
+    <div class="section-head">
+      <div class="eyebrow">Background</div>
+      <h2>Education, certifications &amp; languages</h2>
+    </div>
+    <div class="split">
+      <div>
+        <h3>Education</h3>
+        <p>B.Eng. Electronics &amp; Communications Engineering</p>
+        <p class="sub">Mansoura University, 2023 — 88.98%, Excellence with Honours, ranked 7th</p>
+      </div>
+      <div>
+        <h3>ISTQB Certifications</h3>
+        <p>CTFL · Automotive Tester · Test Automation Engineer · Performance Testing</p>
+      </div>
+      <div>
+        <h3>Languages</h3>
+        <p>Arabic — Native</p>
+        <p class="sub">English — C1, Professional Working Proficiency</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact-band">
+  <div class="section-inner">
+    <div class="eyebrow" style="color:var(--brass-soft);">Get in touch</div>
+    <h2>Let's talk payments, product or QA.</h2>
+    <p>Open to conversations on prepaid cards, digital payments and AI-driven delivery — reach out directly.</p>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="mailto:mohamedbasem512@gmail.com">Email me</a>
+      <a class="btn btn-ghost" href="tel:+971503344217">+971 50 334 4217</a>
+      <a class="btn btn-ghost" href="https://mohbasem25.github.io" target="_blank" rel="noopener">Visit mohbasem25.github.io</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Mohamed Elaadly — Prepaid Cards, Digital Payments &amp; AI Automation · Dubai, UAE
+</footer>
