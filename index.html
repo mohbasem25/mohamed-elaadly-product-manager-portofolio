@@ -88,61 +88,35 @@
   .nav-cta:hover{background:rgba(201,154,91,0.12);}
   @media (max-width:720px){ .nav-links{display:none;} }
 
-  /* ---------- CINEMATIC INTRO SPLASH (plays once) ---------- */
-  html.intro-active, html.intro-active body{ overflow:hidden; height:100%; }
-  .intro-splash{
-    position:fixed; inset:0; z-index:999; background:var(--ink);
-    opacity:1; transition:opacity 0.7s ease;
-  }
-  .intro-splash video{
-    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
-  }
-  .intro-splash .intro-scrim{
-    position:absolute; inset:0; pointer-events:none;
-    background:linear-gradient(to bottom, rgba(10,13,20,0) 68%, rgba(10,13,20,0.55) 100%);
-  }
-  .intro-splash .intro-mark{
-    position:absolute; top:28px; left:28px;
-    display:flex; align-items:center; gap:10px; color:#f4f2ea;
-  }
-  .intro-splash .intro-mark .chip-mini{
-    width:24px; height:18px; border-radius:3px;
-    background:linear-gradient(135deg, var(--brass-soft), var(--brass) 60%, #8a6532);
-    box-shadow:0 2px 10px rgba(0,0,0,0.4);
-  }
-  .intro-splash .intro-mark span{font-family:Georgia,serif; font-size:15px; letter-spacing:0.02em; text-shadow:0 1px 6px rgba(0,0,0,0.5);}
-  .skip-intro{
-    position:absolute; right:24px; bottom:28px;
-    background:rgba(10,13,20,0.4); border:1px solid rgba(244,242,234,0.4); color:#f4f2ea;
-    font-size:12.5px; letter-spacing:0.06em; padding:10px 18px; border-radius:999px;
-    cursor:pointer; backdrop-filter:blur(6px); font-family:inherit;
-  }
-  .skip-intro:hover{border-color:var(--brass-soft); color:var(--brass-soft);}
-  .intro-splash.is-hiding{opacity:0; pointer-events:none;}
-  @media (prefers-reduced-motion: reduce){ .intro-splash{display:none;} }
-
-  /* ---------- IDENTITY / DATA BAND ---------- */
+  /* ---------- SPLIT HERO ---------- */
   .hero-band{
     background:
       radial-gradient(circle at 12% 10%, var(--ledger-line) 0, transparent 45%),
       var(--ink);
     padding:72px 24px 90px;
   }
+  .hero-split{
+    max-width:1000px; margin:0 auto;
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:28px; align-items:stretch;
+  }
+  @media (max-width:800px){ .hero-split{grid-template-columns:1fr;} }
   .card{
-    max-width:800px; margin:0 auto;
     background:linear-gradient(155deg, #1b2233 0%, #10141d 55%, #171d2b 100%);
     border:1px solid rgba(201,154,91,0.25);
     border-radius:18px;
-    padding:44px 44px 34px;
     box-shadow:var(--shadow);
     position:relative; overflow:hidden; color:#e9e8e1;
   }
-  .card::before{
+  .identity-card{padding:44px 40px 34px;}
+  .identity-card::before{
     content:""; position:absolute; inset:0; z-index:0;
     background:repeating-linear-gradient(115deg, rgba(255,255,255,0.02) 0 2px, transparent 2px 26px);
     pointer-events:none;
   }
-  .card-content{position:relative; z-index:1;}
+  .card-content{position:relative; z-index:1; height:100%; display:flex; flex-direction:column; justify-content:center;}
+  .video-panel{padding:0; min-height:320px;}
+  .video-panel video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+  @media (max-width:800px){ .video-panel{min-height:280px;} }
   .card-top{display:flex; justify-content:space-between; align-items:flex-start; gap:16px;}
   .chip{
     width:44px; height:34px; border-radius:6px;
@@ -299,69 +273,33 @@
   </div>
 </nav>
 
-<div id="intro-splash" class="intro-splash">
-  <video id="intro-video" autoplay muted playsinline
-    poster="https://github.com/mohbasem25/mohamed-elaadly-product-manager-portofolio/releases/download/media-v1/cover-istqb-static-testing.jpg">
-    <source src="https://github.com/mohbasem25/mohamed-elaadly-product-manager-portofolio/releases/download/media-v1/video-istqb-static-testing.mp4" type="video/mp4">
-  </video>
-  <div class="intro-scrim"></div>
-  <div class="intro-mark">
-    <span class="chip-mini" aria-hidden="true"></span>
-    <span>M. Elaadly</span>
-  </div>
-  <button type="button" class="skip-intro" id="skip-intro-btn">Skip intro ›</button>
-</div>
-
-<script>
-(function(){
-  var html = document.documentElement;
-  var splash = document.getElementById('intro-splash');
-  if(!splash) return;
-  var alreadySeen = false;
-  try { alreadySeen = sessionStorage.getItem('introSeen') === '1'; } catch(e){}
-  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(alreadySeen || reduceMotion){
-    splash.remove();
-    return;
-  }
-  html.classList.add('intro-active');
-  var video = document.getElementById('intro-video');
-  var skipBtn = document.getElementById('skip-intro-btn');
-  var dismissed = false;
-  function dismiss(){
-    if(dismissed) return;
-    dismissed = true;
-    try { sessionStorage.setItem('introSeen', '1'); } catch(e){}
-    splash.classList.add('is-hiding');
-    html.classList.remove('intro-active');
-    setTimeout(function(){ splash.remove(); }, 750);
-  }
-  video.addEventListener('ended', dismiss);
-  video.addEventListener('error', dismiss);
-  skipBtn.addEventListener('click', dismiss);
-  setTimeout(dismiss, 30000);
-})();
-</script>
-
 <div id="top" class="hero-band">
-  <div class="card">
-    <div class="card-content">
-      <div class="card-top">
-        <div class="card-network">Payments · Product &amp; Quality</div>
-        <div class="chip" aria-hidden="true"></div>
+  <div class="hero-split">
+    <div class="card identity-card">
+      <div class="card-content">
+        <div class="card-top">
+          <div class="card-network">Payments · Product &amp; Quality</div>
+          <div class="chip" aria-hidden="true"></div>
+        </div>
+        <h1 class="card-name">Mohamed Elaadly</h1>
+        <p class="card-role">Product &amp; Quality Lead — Prepaid Cards, Digital Payments &amp; AI Automation</p>
+        <p class="card-tagline">Six years turning payment PRDs into shipped, well-governed products — DCC, tokenisation, card BIN routing, settlement — and building two AI platforms that automate the SDLC and QA lifecycle end to end.</p>
+        <div class="card-meta">
+          <div><span class="label">Based in</span><span class="value mono">Dubai, UAE</span></div>
+          <div><span class="label">Phone</span><span class="value mono">+971 50 334 4217</span></div>
+          <div><span class="label">Email</span><span class="value mono"><a href="mailto:mohamedbasem512@gmail.com">mohamedbasem512@gmail.com</a></span></div>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#projects">See the AI products →</a>
+          <a class="btn btn-ghost" href="#contact">Get in touch</a>
+        </div>
       </div>
-      <h1 class="card-name">Mohamed Elaadly</h1>
-      <p class="card-role">Product &amp; Quality Lead — Prepaid Cards, Digital Payments &amp; AI Automation</p>
-      <p class="card-tagline">Six years turning payment PRDs into shipped, well-governed products — DCC, tokenisation, card BIN routing, settlement — and building two AI platforms that automate the SDLC and QA lifecycle end to end.</p>
-      <div class="card-meta">
-        <div><span class="label">Based in</span><span class="value mono">Dubai, UAE</span></div>
-        <div><span class="label">Phone</span><span class="value mono">+971 50 334 4217</span></div>
-        <div><span class="label">Email</span><span class="value mono"><a href="mailto:mohamedbasem512@gmail.com">mohamedbasem512@gmail.com</a></span></div>
-      </div>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#projects">See the AI products →</a>
-        <a class="btn btn-ghost" href="#contact">Get in touch</a>
-      </div>
+    </div>
+    <div class="card video-panel">
+      <video autoplay muted loop playsinline
+        poster="https://github.com/mohbasem25/mohamed-elaadly-product-manager-portofolio/releases/download/media-v1/cover-istqb-static-testing.jpg">
+        <source src="https://github.com/mohbasem25/mohamed-elaadly-product-manager-portofolio/releases/download/media-v1/video-istqb-static-testing.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 </div>
